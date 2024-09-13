@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import "github.com/labstack/echo/v4"
 
 func main() {
-	fmt.Println("Hello kuntz")
+	e := echo.New()
+	e.Start(":3000")
+
+	e.POST("/order", handlePlaceOrder)
+}
+
+func handlePlaceOrder(c echo.Context) error {
+	return c.JSON(200, "ssss")
 }
